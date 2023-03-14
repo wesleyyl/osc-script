@@ -31,4 +31,4 @@ do
 done
 
 
-python3 /home/wesleyluk/oscillator/osc_scripts/removeFail.py
+python3 /home/wesleyluk/oscillator/osc-scripts/removeFail.py
