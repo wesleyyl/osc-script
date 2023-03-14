@@ -1,0 +1,14 @@
+Number of Zip Files Generated:
+511
+
+File Deletion Log:
+
+50
+100
+50
+100
+101
+110
+
+0
+0

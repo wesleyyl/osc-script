@@ -23,3 +23,22 @@ for file in os.listdir(savedModels):
             break
 
 print(str(fileCount) + " deleted")
+
+
+filename = "runStats.txt"
+
+if (os.path.exists(filename)):
+    with open(filename, 'r') as file: 
+        data = file.readlines()
+
+    data[1] = str(fileCount + int(data[1])) + "\n"
+
+    with open(filename, 'w') as file:
+        file.writelines(data)
+        file.write("\n" + str(fileCount))
+else:
+    with open(filename, 'w') as file:
+        file.write("Number of Zip Files Generated:\n")
+        file.write(str(fileCount) + '\n')
+        file.write("\nFile Deletion Log:")
+        file.write('\n' + str(fileCount))
