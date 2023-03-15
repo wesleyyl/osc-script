@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-#Copy over this script to the evolution directory with batchrun.py
+#NO LONGER NEED TO COPY OVER FILES TO SAME DIRECTORY AS BATCHRUN.PY
+#RUN FILES DIRECTLY FROM OSC-SCRIPTS DIRECTORY
 #use 'cp runBatchRun.sh /home/wesleyluk/oscillator/evolution/evolution'
 #don't need to move the removeFail file!
 
