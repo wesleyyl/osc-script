@@ -1,11 +1,15 @@
-#this file must be within a folder in the oscillator folder
+#this file must be within a folder in the osc-script directory
+#output runStats.txt file in the evolution directory with batchrun.py & runBatchRun.sh
 
 import sys, os
+from pathlib import Path
 
-rootPath = '/home/wesleyluk/oscillator/evolution'
-savedModels = os.path.join(rootPath, 'saved_models')
 
-#print(savedModels)
+#rootPath = '/home/wesleyluk/oscillator/evolution'
+rootPath = os.path.dirname(os.path.dirname( __file__ ))
+savedModels = os.path.join(rootPath, 'evolution/saved_models')
+
+print(savedModels)
 
 
 fileCount = 0
@@ -26,18 +30,20 @@ print(str(fileCount) + " deleted")
 
 
 filename = "runStats.txt"
+filepath = os.path.join(rootPath, 'osc-scripts', filename)
 
-if (os.path.exists(filename)):
-    with open(filename, 'r') as file: 
+
+if (os.path.exists(filepath)):
+    with open(filepath, 'r') as file: 
         data = file.readlines()
 
     data[1] = str(fileCount + int(data[1])) + "\n"
 
-    with open(filename, 'w') as file:
+    with open(filepath, 'w') as file:
         file.writelines(data)
         file.write("\n" + str(fileCount))
 else:
-    with open(filename, 'w') as file:
+    with open(filepath, 'w') as file:
         file.write("Number of Zip Files Generated:\n")
         file.write(str(fileCount) + '\n')
         file.write("\nFile Deletion Log:")

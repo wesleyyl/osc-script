@@ -12,9 +12,18 @@ read -p "Run batchrun.py how many times? > " numRuns
 
 #echo $numRuns
 
-for ((i=0; i<=$numRuns; i++))
+parent_path=${PWD%/*}
+
+
+echo $parent_path
+
+#cd $(dirname $0)
+cd ../evolution/evolution/
+
+for ((i=0; i<$numRuns; i++))
 do
-	python3 /home/wesleyluk/oscillator/evolution/evolution/batchrun.py
+	#python3 /home/wesleyluk/oscillator/evolution/evolution/batchrun.py
+	python3 "${parent_path}/evolution/evolution/batchrun.py"
 
 
 	#while  [[ ! $(pgrep -f batchrun.py) ]]; do
@@ -30,5 +39,5 @@ do
 
 done
 
-
-python3 /home/wesleyluk/oscillator/osc-scripts/removeFail.py
+python3 "${parent_path}/osc-scripts/removeFail.py"
+#python3 /home/wesleyluk/oscillator/osc-scripts/removeFail.py
