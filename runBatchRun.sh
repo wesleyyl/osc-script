@@ -16,7 +16,7 @@ read -p "Run batchrun.py how many times? > " numRuns
 parent_path=${PWD%/*}
 
 
-echo $parent_path
+#echo $parent_path
 
 #cd $(dirname $0)
 cd ../evolution/evolution/
