@@ -40,10 +40,13 @@ for zipFile in fileList:
     filepath = os.path.join(savedModels, zipFile)
     #print(os.path.exists(filepath))
 
-    seed = str(readSeedStr(filepath)) + ".txt"
+    seedNum = readSeedStr(filepath)
+
+    seed = str(seedNum) + ".txt"
     seedPath = os.path.join(extractedAnt, seed)
     
     with open(seedPath, 'wb') as file:
         antStr = readAntStr(filepath)
+        file.write(('Seed: ' + str(seedNum)+ '\n\n').encode())
         file.write(antStr)
 
