@@ -50,6 +50,9 @@ for zipFile in fileList:
     seed = str(seedNum) + ".txt"
     seedPath = os.path.join(extractedAnt, seed)
     
+    if os.path.exists(seedPath):
+        continue
+
     with open(seedPath, 'w') as file:
         antStr = readAntStr(filepath)
         modelConfig = readConfig(filepath)

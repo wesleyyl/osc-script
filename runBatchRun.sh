@@ -41,4 +41,5 @@ do
 done
 
 python3 "${parent_path}/osc-scripts/removeFail.py"
+python3 "${parent_path}/osc-scripts/unzipAntimony.py"
 #python3 /home/wesleyluk/oscillator/osc-scripts/removeFail.py
