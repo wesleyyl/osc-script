@@ -9,7 +9,8 @@ from pathlib import Path
 rootPath = os.path.dirname(os.path.dirname( __file__ ))
 savedModels = os.path.join(rootPath, 'evolution/saved_models')
 
-print(savedModels)
+#print(rootPath)
+#print(savedModels)
 
 
 fileCount = 0

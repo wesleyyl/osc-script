@@ -1,0 +1,42 @@
+git clone https://github.com/really-lilly/evolution.git
+~~
+cd evolution
+~~
+FROM EVOLUTION README:
+
+
+git submodule update --init --recursive
+
+cd sundials
+
+mkdir build
+cd build
+
+# If you are using the cluster, use 'module load cmake' here 
+
+
+#cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../../sundials-install-win32 ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../../sundials-install-linux ..
+cmake --build . --target install --config Release -j 12
+
+cd ../..
+
+~~
+
+INSTALL CONDA OR MINICONDA (GOOGLE IT)
+
+~~
+
+conda env create -f environment.yml
+
+~~
+
+conda activate evolution-linux
+conda install distro
+
+~~
+
+git clone https://github.com/wesleyyl/osc-script.git
+
+
+
