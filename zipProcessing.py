@@ -72,7 +72,8 @@ def catalyticweeder(antStr):
                 uni_bi += 1
                 # Separate products (reactants is already just one item
                 products = products.split('+')
-                if reactants in products:
+                #if reactants in products:
+                if (reactants == products[0] == products[1]):
                     autocatalysis += 1
             elif rxnType == 'bi-uni':
                 bi_uni += 1
@@ -164,8 +165,8 @@ for zipFile in fileList:
 
 
 
-
-""" TO RESTORE THE ORIGINAL STATE
+"""
+#TO RESTORE THE ORIGINAL STATE
 for zipFile in fileList:
     filepath = os.path.join(savedModels, zipFile)
     #print(os.path.exists(filepath))
@@ -192,5 +193,4 @@ for zipFile in fileList:
 
     # if catalytic:
     #     os.rename(seedPath, f"Z_AUTOCAT_{seed}")
-
 """
