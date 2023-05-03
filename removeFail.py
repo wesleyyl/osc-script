@@ -31,7 +31,8 @@ print(str(fileCount) + " deleted")
 
 
 filename = "runStats.txt"
-filepath = os.path.join(rootPath, 'osc-scripts', filename)
+#filepath = os.path.join(rootPath, 'osc-scripts', filename)
+filepath = os.path.join(rootPath, filename)
 
 
 if (os.path.exists(filepath)):
