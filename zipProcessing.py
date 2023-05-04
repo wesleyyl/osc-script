@@ -1,11 +1,13 @@
 import os
 import zipfile
 from zipfile import *
+import shutil
 
 
 rootPath = os.path.dirname(os.path.dirname(os.path.abspath( __file__ )))
 savedModels = os.path.join(rootPath, 'evolution/saved_models')
 extractedAnt = os.path.join(savedModels, 'extracted_ant')
+autocatReactions = os.path.join(savedModels, 'autocatalytic_reactions')
 
 #print(os.path.abspath( __file__ ))
 
@@ -14,6 +16,9 @@ extractedAnt = os.path.join(savedModels, 'extracted_ant')
 if not os.path.exists(extractedAnt):
     os.makedirs(extractedAnt)
     #print("doesn't exist")
+
+if not os.path.exists(autocatReactions):
+    os.makedirs(autocatReactions)
 
 def readAntStr(zipFile):
     with ZipFile(zipFile) as zipF:
@@ -134,6 +139,7 @@ for zipFile in fileList:
         seedPath = os.path.join(extractedAnt, f"Z_AUTOCAT_{seed}")
         newZipPath = os.path.join(savedModels, f"Z_AUTOCAT_{seedNum}.zip")
         os.rename(filepath, newZipPath)
+        shutil.move(newZipPath, autocatReactions)
 
     with open(seedPath, 'w') as file:
         file.write('Seed: ' + str(seedNum)+ '\n*\n\n')
