@@ -80,6 +80,8 @@ def catalyticweeder(antStr):
                 #if reactants in products:
                 if (reactants == products[0] == products[1]):
                     autocatalysis += 1
+                elif (products[0] == products[1]):
+                    autocatalysis += 1
             elif rxnType == 'bi-uni':
                 bi_uni += 1
                 # products is already one item, need to split reactants
@@ -136,7 +138,8 @@ for zipFile in fileList:
     catalytic = catalyticweeder(antStr)
 
     if catalytic:
-        seedPath = os.path.join(extractedAnt, f"Z_AUTOCAT_{seed}")
+        autocatAnt = os.path.join(extractedAnt, 'autocat_ant')
+        seedPath = os.path.join(autocatAnt, f"Z_AUTOCAT_{seed}")
         newZipPath = os.path.join(savedModels, f"Z_AUTOCAT_{seedNum}.zip")
         os.rename(filepath, newZipPath)
         shutil.move(newZipPath, autocatReactions)

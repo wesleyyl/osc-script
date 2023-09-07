@@ -31,7 +31,7 @@ do
 				
 	#fi
 
-	for pid in $(pidof -x batchrun.py); do
+	for pid in $(pidof -x evolve.py); do
 		if [ $pid != $$ ]; then
 			exit 1
 		fi
